@@ -1,0 +1,296 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(35, 35, 35);
+  box-sizing: border-box;
+  color: rgb(227, 219, 216);
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body{
+  overflow: hidden;
+}
+
+body>main {
+  width: 100vw;
+  height: 100vh;
+}
+
+main>section {
+  background-color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  height: 100%;
+}
+
+.player_main{
+
+}
+
+.track_list{
+
+}
+
+.player_view{
+
+}
+
+.fillwidth {
+  width: 100%;
+}
+
+.scrolling {
+  overflow-y: scroll;
+}
+
+.fillwidth {
+  width: 100%;
+}
+
+.oneflex {
+  flex: 1;
+}
+
+.twoflex {
+  flex: 2;
+}
+
+.threeflex {
+  flex: 3;
+}
+
+.fourflex {
+  flex: 4;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.dir-col {
+  flex-direction: column;
+}
+
+.dir-row {
+  flex-direction: row;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Specific media */
+.trackpadding {
+  padding: 5px;
+}
+
+.artist_text {
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+.track_text {
+  font-style: normal;
+  font-size: 12pt;
+}
+
+.artist_text_play {
+  font-weight: bold;
+  font-size: 18pt;
+}
+
+.track_text_play {
+  font-style: normal;
+  font-size: 16pt;
+}
+
+.track_text_time {
+  font-style: normal;
+  font-size: 16pt;
+}
+
+.icon_large {
+  font-size: 24pt;
+}
+
+.nowplay {
+  font-size: 24pt;
+}
+
+.track {
+  padding: 5px;
+  overflow: hidden;
+  border: 1px solid rgb(25, 25, 25);
+  min-height: 75px;
+  max-height: 75px;
+  margin: 5px 0;
+  background-color: rgb(45, 45, 45);
+}
+
+.track:hover {
+  background-color: rgb(55, 55, 55);
+}
+
+.track * {
+  background-color: inherit;
+}
+
+.track>figure {
+  height: 65px;
+}
+
+.albumdisplay {
+  border: 1px solid #FFF;
+  width: 100%;
+}
+
+.space-even {
+  justify-content: space-around;
+}
+
+.albumcoverbg {
+  background-image: url('../img/cannibal_corpse.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.player * {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.player {
+  color: #FFF;
+  background-color: rgba(25, 25, 25, 0.7);
+}
+
+.timeline {
+  background-color: rgb(75, 75, 75);
+  height: 10px;
+  width: 100%;
+  border-radius: 3px;
+  border: 3px solid rgb(75, 75, 75);
+}
+
+.progress {
+  background-color: rgb(150, 150, 150);
+  height: 100%;
+  border-radius: 3px;
+  border: 3px solid rgb(150, 150, 150);
+}
+
+.smallbutton{
+  font-size: 12pt;
+}
+
+.mediumbutton{
+  font-size: 18pt;
+}
+
+.largebutton{
+  font-size: 36pt;
+}
+
+.text_playlist{
+  font-size: 18pt;
+}
+
+/* ID */
+
+#p_shuffle{
+  color: #FFF;
+}
+
+#p_repeat{
+  color: #FFF;
+}
+
+#player_track_time_elapsed_bar{
+  width: 0%;
+}
+
+#p_pause{
+  display: none;
+}
+
+#p_play{
+  display: block;
+}
+
+@media (max-width: 500px) {
+  .albumdisplay{
+    width: 50%;
+  }
+  .hide_on_mobile{
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .player_main{
+    flex-direction: column;
+  }
+  .player_view{
+    order: 1;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  .player{
+    height: 100vh;
+  }
+  .track_list{
+    order: 2;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  .mobile_only{
+    display: block;
+  }
+  .desktop_only{
+    display: none;
+  }
+}
+
+@media (min-width: 851px) {
+  .player_main{
+    flex-direction: row;
+  }
+  .player_view{
+    order: 2;
+    min-height: 100vh;
+    max-height: 100vh;
+    flex: 2;
+  }
+  .player{
+    height: 100vh;
+  }
+  .track_list{
+    flex: 1;
+    order: 1;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  .mobile_only{
+    display: none;
+  }
+  .desktop_only{
+    display: block;
+  }
+}
