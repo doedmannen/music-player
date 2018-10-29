@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yfitops</title>
+    <link rel="stylesheet" href="./css/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <script type="text/javascript" src="./scripts/play.js"></script>
+  </head>
+  <body class="flexbox dir-row">
+
+    <!-- Desktop player full view -->
+    <main class="flexbox player_main">
+
+      <!-- Player track list view -->
+      <section class="track_list flexbox dir-col" id="tracks">
+        <!-- Header over tracks -->
+        <header class="trackpadding flexbox dir-row space-even align-center">
+          <!-- Back -->
+          <section>
+            <a href="#">
+              <i class="fas fa-chevron-left smallbutton"></i>
+            </a>
+          </section>
+          <!-- Track title -->
+          <section class="oneflex text-center text_playlist">
+            <caption>Playlist - My Playlist</caption>
+          </section>
+          <!-- More / settings  -->
+          <section>
+            <i class="fas fa-cog smallbutton"></i>
+          </section>
+        </header>
+
+        <!-- Tracks -->
+        <section class="flexbox oneflex dir-col scrolling">
+
+
+          <!-- Copy pasta cluster fuck start -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">Demented Aggression</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(0)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">Sarcophagic Frenzy</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(1)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">Scourge of Iron</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(2)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">Encased in Concrete</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(3)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">As Deep as the Knife Will Go</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(4)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">Intestinal Crank</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(5)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">Followed Home Then Killed</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(6)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">The Strangulation Chair</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(7)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">Caged... Contorted</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(8)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">Crucifier Avenged</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(9)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">Rabid</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(10)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- A track -->
+          <section class="track flexbox oneflex dir-row align-center">
+            <figure class="trackpadding albumcover">
+              <img src="./img/cannibal_corpse.jpg" alt="album cover">
+            </figure>
+            <article class="oneflex flexbox trackpadding dir-col justify-center">
+              <ul>
+                <li class="artist_text">Cannibal Corpse</li>
+                <li class="track_text">Torn Through</li>
+              </ul>
+            </article>
+            <section class="trackpadding" onclick="playTrack(11)">
+              <a href="#">
+                <i class="far fa-play-circle"></i>
+              </a>
+            </section>
+          </section>
+          <!-- Track end -->
+
+          <!-- Copy pasta cluster fuck end -->
+
+        </section>
+        <!-- end of tracks -->
+      </section>
+      <!-- End of track list view -->
+
+      <!-- Start of track playing -->
+      <section class="player_view flexbox dir-col albumcoverbg" id="nowplay">
+
+        <!-- background blur -->
+
+        <section class="flexbox player oneflex dir-col">
+
+
+          <!-- start of playing header -->
+          <header class="flexbox trackpadding dir-row align-center text-center space-even">
+
+            <!-- Back -->
+            <section class="mobile_only">
+              <a href="#tracks">
+                <i class="fas fa-chevron-left smallbutton"></i>
+              </a>
+            </section>
+
+            <section class="nowplay oneflex">
+              <caption>
+                Now playing
+              </caption>
+            </section>
+
+            <!-- More / settings  -->
+            <section class="mobile_only">
+              <i class="fas fa-cog smallbutton"></i>
+            </section>
+
+          </header>
+
+          <!-- end of playing header -->
+
+          <!-- start of album cover -->
+          <section class="flexbox dir-row twoflex">
+            <section class="oneflex hide_on_mobile">
+
+            </section>
+            <figure class="oneflex text-center">
+              <img src="./img/cannibal_corpse.jpg" class="albumdisplay" alt="album cover">
+            </figure>
+            <section class="oneflex hide_on_mobile">
+
+            </section>
+          </section>
+          <!-- end of album cover -->
+
+
+          <!-- start of track info -->
+          <section class="flexbox space-even oneflex text-center align-center">
+            <section class="oneflex">
+              <i class="far fa-plus-square mediumbutton"></i>
+            </section>
+            <ul class="threeflex">
+              <li class="artist_text_play" id="player_artist_name">Cannibal Corpse</li>
+              <li class="track_text_play" id="player_track_name">Demented Aggression</li>
+            </ul>
+            <section class="oneflex">
+              <i class="far fa-heart mediumbutton"></i>
+            </section>
+          </section>
+          <!-- end of track info -->
+
+          <!-- start of progress bar -->
+          <section class="flexbox oneflex text-center align-center space-even">
+            <section class="track_text_time oneflex" id="player_track_time_elapsed">
+              0:00
+            </section>
+            <section class="threeflex">
+              <div class="timeline">
+                <div class="progress" id="player_track_time_elapsed_bar">
+                  <!-- Display passed timeline -->
+                </div>
+              </div>
+            </section>
+            <section class="track_text_time oneflex" id="player_track_time_total">
+              3:10
+            </section>
+          </section>
+          <!-- end of progress bar -->
+
+
+          <!-- Start of control panel -->
+          <section class="flexbox align-center text-center space-even oneflex">
+
+            <section class="oneflex" onclick="play_repeat()">
+              <i class="fas fa-redo-alt mediumbutton" id="p_repeat"></i>
+            </section>
+
+            <section class="flexbox twoflex text-center space-even align-center">
+              <i class="oneflex fas fa-backward mediumbutton" onclick="nextTrack(-1)"></i>
+              <i class="oneflex fas fa-play-circle largebutton" id="p_play" onclick="play_pause()"></i>
+              <i class="oneflex fas fa-pause-circle largebutton" id="p_pause"  onclick="play_pause()"></i>
+              <i class="oneflex fas fa-forward mediumbutton" onclick="nextTrack(1)"></i>
+            </section>
+
+            <section class="oneflex" onclick="play_shuffle()">
+              <i class="fas fa-random mediumbutton" id="p_shuffle"></i>
+            </section>
+
+          </section>
+          <!-- End of control panel -->
+
+
+          <!-- End of track playing -->
+        </section>
+
+      </section>
+      <!-- End of track playing -->
+    </main>
+    <!-- End of desktop player full view -->
+
+
+
+  </body>
+</html>
