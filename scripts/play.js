@@ -312,6 +312,8 @@ function nextTrack(n = 0) {
     currentTrack += n;
     if(currentTrack < 0){
       currentTrack = 0;
+    } else if(currentTrack == tracks[currentPlaylist].length){
+      currentTrack--;
     }
 
   } else {
