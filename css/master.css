@@ -33,17 +33,6 @@ img {
   height: 100%;
 }
 
-.player_main{
-
-}
-
-.track_list{
-
-}
-
-.player_view{
-
-}
 
 .fillwidth {
   width: 100%;
@@ -166,12 +155,6 @@ img {
   justify-content: space-around;
 }
 
-.albumcoverbg {
-  background-image: url('../img/cannibal_corpse.jpg');
-  background-size: 100% 100%;
-  background-position: center;
-}
-
 .player * {
   background-color: rgba(0, 0, 0, 0);
 }
@@ -214,6 +197,9 @@ img {
 
 /* ID */
 
+#track_playing{
+}
+
 #p_shuffle{
   color: #FFF;
 }
@@ -234,20 +220,39 @@ img {
   display: block;
 }
 
-@media (max-width: 500px) {
-  .albumdisplay{
-    width: 50%;
-  }
-  .hide_on_mobile{
-    display: none;
-  }
+#hide_on_desktop{
+  display: block;
 }
 
-@media (max-width: 850px) {
-  .player_main{
+#track_list{
+  display: none;
+}
+
+#player_view{
+  background-image: url('');
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+#player_main{
+
+}
+
+#playlist_list{
+  display: flex;
+}
+
+
+/* Tablet & mobile */
+
+@media (max-width: 1024px) {
+  #player_main{
     flex-direction: column;
   }
-  .player_view{
+  #hide_on_desktop{
+    display: block;
+  }
+  #player_view{
     order: 1;
     min-height: 100vh;
     max-height: 100vh;
@@ -255,7 +260,12 @@ img {
   .player{
     height: 100vh;
   }
-  .track_list{
+  #track_list{
+    order: 2;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  #playlist_list{
     order: 2;
     min-height: 100vh;
     max-height: 100vh;
@@ -268,11 +278,14 @@ img {
   }
 }
 
-@media (min-width: 851px) {
-  .player_main{
+@media (min-width: 1025px) {
+  #player_main{
     flex-direction: row;
   }
-  .player_view{
+  #hide_on_desktop{
+    display: none;
+  }
+  #player_view{
     order: 2;
     min-height: 100vh;
     max-height: 100vh;
@@ -281,7 +294,13 @@ img {
   .player{
     height: 100vh;
   }
-  .track_list{
+  #track_list{
+    flex: 1;
+    order: 1;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  #playlist_list{
     flex: 1;
     order: 1;
     min-height: 100vh;
