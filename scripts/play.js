@@ -310,6 +310,9 @@ function nextTrack(n = 0) {
   } else if (n != 0) {
 
     currentTrack += n;
+    if(currentTrack < 0){
+      currentTrack = 0;
+    }
 
   } else {
     currentTrack++;
