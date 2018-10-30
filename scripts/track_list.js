@@ -31,18 +31,14 @@ tracks[1]  = [
       ["Ween", "Ocean Man", "127", "https://static.stereogum.com/uploads/2017/07/ween-mollusk-1499786118-640x640.jpg"],
       ["Smash Mouth", "All Star", "200", "https://images-na.ssl-images-amazon.com/images/I/715gWkY5H2L._SL1067_.jpg"]
 ];
-//
-// playlist[2] = "";
-// tracks[2] = [
-//     ["", "", "", ""],
-//     ["", "", "", ""],
-//     ["", "", "", ""],
-//     ["", "", "", ""],
-//     ["", "", "", ""],
-//     ["", "", "", ""],
-//     ["", "", "", ""],
-//     ["", "", "", ""]
-// ];
+
+playlist[2] = "The KKK took spotify away";
+tracks[2] = [
+    ["Ramones", "The KKK Took My Baby Away (REMASTERED)", "151", "https://images-na.ssl-images-amazon.com/images/I/51J%2BIpOlfwL._SY355_.jpg"],
+    ["The Hives", "Walk Idiot Walk", "212", "https://upload.wikimedia.org/wikipedia/en/e/ef/The_Hives_Tyrannosaurus_Hives.jpg"],
+    ["Goat", "Run To Your Mama", "142", "https://d1wtzzt4oxg683.cloudfront.net/images/covers/large/177/135427.jpg"],
+    ["Body Count", "Hey Joe", "268", "https://images-na.ssl-images-amazon.com/images/I/6149OPdhifL._SX355_.jpg"]
+];
 //
 // playlist[3] = "";
 // tracks[3] = [
