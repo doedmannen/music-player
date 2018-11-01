@@ -17,33 +17,80 @@ let shuffle = -1;
 let repeat = -1;
 let view = -1;
 
+/*
+  Master DOM
+*/
+let audio_player;
+let audio_track;
+
+/*
+  Uppdaterar timeline när användaren trycker på den.
+  Ändrar width på inre timeline och tid på track.
+*/
+
+
+function timeControl(event) {
+  let time_line = document.getElementById('player_track_time_elapsed_bar');
+  let off = document.getElementById('player_track_time_bar');
+  let posX = event.clientX;
+  let barPosition = Math.floor(posX - off.offsetLeft);
+
+
+  barPosition = mapTo(barPosition, off.offsetWidth)+1;
+  if(barPosition < 2){
+    barPosition = 0;
+  }
+
+
+  track_time_elapsed = (barPosition / 100) * tracks[currentPlaylist][currentTrack][2];
+  let min = parseInt(track_time_elapsed / 60);
+  let sec = parseInt(track_time_elapsed % 60);
+  if(sec < 10){
+    sec = "0"+sec;
+  }
+
+  time_line.style.width = (barPosition) + "%";
+  document.getElementById('player_track_time_elapsed').innerHTML = "" + min + ":" + sec;
+  audio_player.currentTime = track_time_elapsed;
+
+}
+
+
+function getSampleElements() {
+  audio_player = document.getElementById('audio_player');
+  audio_track = document.getElementById('audio_track');
+}
 
 function changeView() {
   view *= -1;
-  if(view == -1){
+  if (view == -1) {
     document.getElementById('playlist_list').style.display = "flex";
     document.getElementById('track_list').style.display = "none";
     document.getElementById('back_button').setAttribute('href', "#playlist_list");
-  }else if(view == 1){
+  } else if (view == 1) {
     document.getElementById('playlist_list').style.display = "none";
     document.getElementById('track_list').style.display = "flex";
     document.getElementById('back_button').setAttribute('href', "#track_list");
   }
 }
 
-function changePlaylist(n){
+function changePlaylist(n) {
   currentPlaylist = n;
   currentTrack = 0;
   createTracks();
   changeView();
 
-  if(pause == 1){
+  if (pause == 1) {
     play_pause();
   }
 }
 
+function setVolume(v) {
+  document.getElementById("audio_player").volume = (v/100);
+  document.getElementById("volume_control").setAttribute('value', 0);
+}
 
-function updatePlayingTrack(){
+function updatePlayingTrack() {
   track_time_elapsed = 0;
   document.getElementById('player_artist_name').innerHTML = tracks[currentPlaylist][currentTrack][0];
   document.getElementById('player_track_name').innerHTML = tracks[currentPlaylist][currentTrack][1];
@@ -56,13 +103,19 @@ function updatePlayingTrack(){
   document.getElementById('player_track_time_elapsed_bar').style.width = "0%";
 
   document.getElementById('player_album_cover').setAttribute('src', tracks[currentPlaylist][currentTrack][3]);
-  document.getElementById('player_view').style.backgroundImage = "url(" + tracks[currentPlaylist][currentTrack][3]+ ")";
+  document.getElementById('track_bg').style.backgroundImage = "url(" + tracks[currentPlaylist][currentTrack][3] + ")";
   document.getElementById('player_track_time_elapsed').innerHTML = "0:00";
+
+  audio_track.src = tracks[currentPlaylist][currentTrack][4];
+  audio_player.load();
+  if (playing) {
+    audio_player.play();
+  }
 }
 
 function deleteTracks() {
   let remover = document.getElementById('track_list_view');
-  if(remover){
+  if (remover) {
     remover.parentNode.removeChild(remover);
   }
 }
@@ -141,7 +194,7 @@ function createTracks() {
 
     child = document.createElement("section");
     child.setAttribute('class', "trackpadding");
-    child.setAttribute('onclick', "playTrack("+i+")");
+    child.setAttribute('onclick', "playTrack(" + i + ")");
     parent.appendChild(child);
 
     parent = child;
@@ -154,6 +207,7 @@ function createTracks() {
 
     child = document.createElement("i")
     child.setAttribute('class', "far fa-play-circle");
+    // child.innerHTML = "x";
     parent.appendChild(child);
 
 
@@ -224,7 +278,7 @@ function createPlaylists() {
 
     child = document.createElement("section");
     child.setAttribute('class', "trackpadding");
-    child.setAttribute('onclick', "changePlaylist("+i+")");
+    child.setAttribute('onclick', "changePlaylist(" + i + ")");
     parent.appendChild(child);
 
     parent = child;
@@ -235,8 +289,9 @@ function createPlaylists() {
 
     parent = child;
 
-    child = document.createElement("i")
+    child = document.createElement("i");
     child.setAttribute('class', "far fa-play-circle");
+    // child.innerHTML = "x";
     parent.appendChild(child);
 
 
@@ -249,8 +304,8 @@ function createPlaylists() {
   Översätt nuvarande tid på låt till ett värde mellan 0-100
 */
 
-function mapTo() {
-  return (100 * (track_time_elapsed / tracks[currentPlaylist][currentTrack][2]));
+function mapTo(value = track_time_elapsed, total = tracks[currentPlaylist][currentTrack][2]) {
+  return Math.floor(100 * (value / total));
 }
 
 
@@ -262,6 +317,7 @@ function mapTo() {
 
 function startLoop() {
   playing = true;
+  audio_player.play();
   playLoop = setInterval(function() {
     track_time_elapsed++;
 
@@ -280,6 +336,15 @@ function startLoop() {
   }, 1000);
 }
 
+
+/*
+Stannar spelloopen
+*/
+function stopLoop() {
+  playing = false;
+  audio_player.pause();
+  clearTimeout(playLoop);
+}
 
 /*
   Shufflar en låt i spellistan
@@ -310,9 +375,9 @@ function nextTrack(n = 0) {
   } else if (n != 0) {
 
     currentTrack += n;
-    if(currentTrack < 0){
+    if (currentTrack < 0) {
       currentTrack = 0;
-    } else if(currentTrack == tracks[currentPlaylist].length){
+    } else if (currentTrack == tracks[currentPlaylist].length) {
       currentTrack--;
     }
 
@@ -331,14 +396,6 @@ function nextTrack(n = 0) {
 }
 
 
-
-/*
-  Stannar spelloopen
-*/
-function stopLoop() {
-  playing = false;
-  clearTimeout(playLoop);
-}
 
 /*
   Funktion för att spela eller pausa musik
