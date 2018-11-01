@@ -1,24 +1,20 @@
-
 * {
   margin: 0;
   padding: 0;
-  background-color: rgb(35, 35, 35);
   box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
   color: rgb(227, 219, 216);
   font-family: 'Ubuntu', sans-serif;
+  cursor: default;
 }
 
-body{
+body {
   overflow: hidden;
 }
 
 body>main {
   width: 100vw;
   height: 100vh;
-}
-
-main>section {
-  background-color: inherit;
 }
 
 ul {
@@ -32,7 +28,6 @@ li {
 img {
   height: 100%;
 }
-
 
 .fillwidth {
   width: 100%;
@@ -155,161 +150,211 @@ img {
   justify-content: space-around;
 }
 
-.player * {
-  background-color: rgba(0, 0, 0, 0);
-}
 
 .player {
+
+}
+
+
+.smallbutton {
+  font-size: 12pt;
+}
+
+.mediumbutton {
+  font-size: 18pt;
+}
+
+.largebutton {
+  font-size: 36pt;
+}
+
+.text_playlist {
+  font-size: 18pt;
+}
+
+/* ID */
+#track_playing {}
+
+#p_shuffle {
   color: #FFF;
-  background-color: rgba(25, 25, 25, 0.7);
+}
+
+#p_repeat {
+  color: #FFF;
+}
+
+#player_track_time_elapsed_bar {
+  width: 0%;
+}
+
+#p_pause {
+  display: none;
+}
+
+#p_play {
+  display: block;
+}
+
+#hide_on_desktop {
+  display: block;
+}
+
+#track_list {
+  background-color: rgb(35, 35, 35);
+  display: none;
+}
+
+
+#player_view {
+  background-color: rgba(0,0,0,0.65);
+
+}
+
+
+#track_bg {
+  height: 100%;
+  width: 67%;
+  position: fixed;
+  background-image: url('');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(20px);
+  -webkit-filter: blur(20px);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+#playlist_list {
+  display: flex;
+  background-color: rgb(35, 35, 35);
 }
 
 .timeline {
   background-color: rgb(75, 75, 75);
-  height: 10px;
+  height: 0px;
+  padding-bottom: 9px;
   width: 100%;
-  border-radius: 3px;
-  border: 3px solid rgb(75, 75, 75);
+  border-radius: 5px;
+  border: 1px solid rgb(75, 75, 75);
 }
 
 .progress {
   background-color: rgb(150, 150, 150);
   height: 100%;
-  border-radius: 3px;
-  border: 3px solid rgb(150, 150, 150);
+  border-radius: 5px;
+  border: 5px solid rgb(150, 150, 150);
 }
 
-.smallbutton{
-  font-size: 12pt;
+#volume_control{
+  display: inline;
+  width: 20vh;
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
-
-.mediumbutton{
-  font-size: 18pt;
-}
-
-.largebutton{
-  font-size: 36pt;
-}
-
-.text_playlist{
-  font-size: 18pt;
-}
-
-/* ID */
-
-#track_playing{
-}
-
-#p_shuffle{
-  color: #FFF;
-}
-
-#p_repeat{
-  color: #FFF;
-}
-
-#player_track_time_elapsed_bar{
-  width: 0%;
-}
-
-#p_pause{
-  display: none;
-}
-
-#p_play{
-  display: block;
-}
-
-#hide_on_desktop{
-  display: block;
-}
-
-#track_list{
-  display: none;
-}
-
-#player_view{
-  background-image: url('');
-  background-size: 100% 100%;
-  background-position: center;
-}
-
-#player_main{
-
-}
-
-#playlist_list{
-  display: flex;
-}
-
 
 /* Tablet & mobile */
-
 @media (max-width: 1024px) {
-  #player_main{
+
+  #track_bg {
+    height: 100%;
+    width: 100%;
+  }
+
+  #volume_control{
+    display: none;
+  }
+
+  #player_main {
     flex-direction: column;
   }
-  #hide_on_desktop{
+
+  #hide_on_desktop {
     display: block;
   }
-  #player_view{
+
+  #player_view {
     order: 1;
     min-height: 100vh;
     max-height: 100vh;
   }
-  .player{
+
+  .player {
     height: 100vh;
   }
-  #track_list{
+
+  #track_list {
     order: 2;
     min-height: 100vh;
     max-height: 100vh;
   }
-  #playlist_list{
+
+  #playlist_list {
     order: 2;
     min-height: 100vh;
     max-height: 100vh;
   }
-  .mobile_only{
+
+  .mobile_only {
     display: block;
   }
-  .desktop_only{
+
+  .desktop_only {
     display: none;
   }
 }
 
 @media (min-width: 1025px) {
-  #player_main{
+
+  #track_bg {
+    height: 100%;
+    width: 67%;
+  }
+
+  #volume_control{
+    display: inline;
+  }
+
+  #player_main {
     flex-direction: row;
   }
-  #hide_on_desktop{
+
+  #hide_on_desktop {
     display: none;
   }
-  #player_view{
+
+
+  #player_view {
     order: 2;
     min-height: 100vh;
     max-height: 100vh;
     flex: 2;
   }
-  .player{
+
+  .player {
     height: 100vh;
   }
-  #track_list{
+
+  #track_list {
     flex: 1;
     order: 1;
     min-height: 100vh;
     max-height: 100vh;
   }
-  #playlist_list{
+
+  #playlist_list {
     flex: 1;
     order: 1;
     min-height: 100vh;
     max-height: 100vh;
   }
-  .mobile_only{
+
+  .mobile_only {
     display: none;
   }
-  .desktop_only{
+
+  .desktop_only {
     display: block;
   }
 }
