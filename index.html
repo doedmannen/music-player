@@ -4,15 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yfitops</title>
-    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/master.css?updateWithNewCSS">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <script type="text/javascript" src="./scripts/play.js"></script>
     <script type="text/javascript" src="./scripts/track_list.js"></script>
   </head>
+
   <body class="flexbox dir-row">
 
-    <!-- Desktop player full view -->
+    <!-- Track play start -->
+    <audio id="audio_player">
+      <source id="audio_track" src="./mp3/broken_link_leads_to_nowhere.ogg" type="audio/ogg">
+    </audio>
+    <!-- Track play end -->
+
+    <!-- Player full view -->
     <main class="flexbox" id="player_main">
 
 
@@ -24,7 +31,7 @@
           <!-- Back -->
           <section id="hide_on_desktop">
             <a href="#">
-              <i class="fas fa-chevron-left smallbutton"></i>
+              <i class="fas fa-chevron-left smallbutton"> </i>
             </a>
           </section>
           <!-- Track title -->
@@ -33,7 +40,7 @@
           </section>
           <!-- change view playlist or tracks  -->
           <section>
-            <i class="fas fa-list smallbutton" onclick="changeView()"></i>
+            <i class="fas fa-list smallbutton" onclick="changeView()"> </i>
           </section>
         </header>
         <!-- End of header -->
@@ -58,7 +65,7 @@
           <!-- Back -->
           <section id="hide_on_desktop">
             <a href="#">
-              <i class="fas fa-chevron-left smallbutton"></i>
+              <i class="fas fa-chevron-left smallbutton"> </i>
             </a>
           </section>
           <!-- Track title -->
@@ -67,28 +74,42 @@
           </section>
           <!-- change view playlist or tracks  -->
           <section>
-            <i class="fas fa-list smallbutton" onclick="changeView()"></i>
+            <i class="fas fa-list smallbutton" onclick="changeView()"> </i>
           </section>
         </header>
         <!-- End of header -->
+
+        <!-- Playlists are put here with JavaScript -->
+        <!-- Playlists are put here with JavaScript -->
+        <!-- Playlists are put here with JavaScript -->
+        <!-- Playlists are put here with JavaScript -->
+        <!-- Playlists are put here with JavaScript -->
+        <!-- Playlists are put here with JavaScript -->
+        <!-- Playlists are put here with JavaScript -->
+
+
       </section>
       <!-- Playlist view end -->
+
 
       <!-- Start of track playing -->
       <section class="flexbox dir-col" id="player_view">
 
+        <section id="track_bg">
+          <!-- Background is displayed here -->
+        </section>
         <!-- background blur -->
 
         <section class="flexbox player oneflex dir-col">
 
 
           <!-- start of playing header -->
-          <header class="flexbox trackpadding dir-row align-center text-center space-even">
+          <header class="flexbox oneflex trackpadding dir-row align-center text-center space-even">
 
             <!-- Back -->
             <section class="mobile_only">
               <a href="#playlist_list" id="back_button">
-                <i class="fas fa-chevron-left smallbutton"></i>
+                <i class="fas fa-chevron-left smallbutton"> </i>
               </a>
             </section>
 
@@ -100,7 +121,7 @@
 
             <!-- More / settings  -->
             <!-- <section class="mobile_only">
-              <i class="fas fa-cog smallbutton"></i>
+              <i class="fas fa-cog smallbutton"> </i>
             </section> -->
 
           </header>
@@ -108,14 +129,18 @@
           <!-- end of playing header -->
 
           <!-- start of album cover -->
-          <section class="flexbox dir-row twoflex align-center">
+          <section class="flexbox dir-row oneflex justify-center align-center">
             <section class="oneflex">
 
             </section>
-            <figure class="twoflex text-center">
+            <figure class="oneflex text-center">
               <img src="" id="player_album_cover" class="albumdisplay" alt="album cover">
             </figure>
-            <section class="oneflex">
+            <section class="oneflex text-center">
+
+              <!-- volume controller -->
+              <input id="volume_control" type="range" name="volume" min="0" max="100" onchange="setVolume(this.value)">
+              <!-- volume controller -->
 
             </section>
           </section>
@@ -125,14 +150,14 @@
           <!-- start of track info -->
           <section class="flexbox space-even oneflex text-center align-center">
             <section class="oneflex">
-              <i class="far fa-plus-square mediumbutton"></i>
+              <i class="far fa-plus-square mediumbutton"> </i>
             </section>
             <ul class="threeflex">
               <li class="artist_text_play" id="player_artist_name">Cannibal Corpse</li>
               <li class="track_text_play" id="player_track_name">Demented Aggression</li>
             </ul>
             <section class="oneflex">
-              <i class="far fa-heart mediumbutton"></i>
+              <i class="far fa-heart mediumbutton"> </i>
             </section>
           </section>
           <!-- end of track info -->
@@ -143,7 +168,7 @@
               0:00
             </section>
             <section class="threeflex">
-              <div class="timeline">
+              <div class="timeline align-center justify-center" id="player_track_time_bar" onclick="timeControl(event)">
                 <div class="progress" id="player_track_time_elapsed_bar">
                   <!-- Display passed timeline -->
                 </div>
@@ -160,18 +185,18 @@
           <section class="flexbox align-center text-center space-even oneflex">
 
             <section class="oneflex" onclick="play_repeat()">
-              <i class="fas fa-redo-alt mediumbutton" id="p_repeat"></i>
+              <i class="fas fa-redo-alt mediumbutton" id="p_repeat"> </i>
             </section>
 
             <section class="flexbox twoflex text-center space-even align-center">
-              <i class="oneflex fas fa-backward mediumbutton" onclick="nextTrack(-1)"></i>
-              <i class="oneflex fas fa-play-circle largebutton" id="p_play" onclick="play_pause()"></i>
-              <i class="oneflex fas fa-pause-circle largebutton" id="p_pause"  onclick="play_pause()"></i>
-              <i class="oneflex fas fa-forward mediumbutton" onclick="nextTrack(1)"></i>
+              <i class="oneflex fas fa-backward mediumbutton" onclick="nextTrack(-1)"> </i>
+              <i class="oneflex fas fa-play-circle largebutton" id="p_play" onclick="play_pause()"> </i>
+              <i class="oneflex fas fa-pause-circle largebutton" id="p_pause"  onclick="play_pause()"> </i>
+              <i class="oneflex fas fa-forward mediumbutton" onclick="nextTrack(1)"> </i>
             </section>
 
             <section class="oneflex" onclick="play_shuffle()">
-              <i class="fas fa-random mediumbutton" id="p_shuffle"></i>
+              <i class="fas fa-random mediumbutton" id="p_shuffle"> </i>
             </section>
 
           </section>
@@ -184,12 +209,14 @@
       </section>
       <!-- End of track playing -->
     </main>
-    <!-- End of desktop player full view -->
+    <!-- End of player full view -->
 
     <!-- Tracks are generated into HTML from JavaScript array tracks -->
     <script type="text/javascript">
     /* Creates the DOM-elements for tracks */
+      getSampleElements();
       createPlaylists();
+      setVolume(100);
     </script>
 
 
