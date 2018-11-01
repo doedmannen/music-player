@@ -87,7 +87,7 @@ function changePlaylist(n) {
 
 function setVolume(v) {
   document.getElementById("audio_player").volume = (v/100);
-  document.getElementById("volume_control").setAttribute('value', 0);
+  document.getElementById("volume_control").setAttribute('value', v);
 }
 
 function updatePlayingTrack() {
